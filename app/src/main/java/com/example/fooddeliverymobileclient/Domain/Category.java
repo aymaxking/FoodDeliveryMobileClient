@@ -1,14 +1,19 @@
 package com.example.fooddeliverymobileclient.Domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Category{
     private Long id;
     private String title;
-    private List<Type> types;
+    private ArrayList<Type> types;
 
-    public Category(Long id, String title, List<Type> types) {
+    public Category(Long id, String title, ArrayList<Type> types) {
         this.id = id;
+        this.title = title;
+        this.types = types;
+    }
+    public Category(String title, ArrayList<Type> types) {
         this.title = title;
         this.types = types;
     }
@@ -31,11 +36,11 @@ public class Category{
         this.title = title;
     }
 
-    public List<Type> getTypes() {
+    public ArrayList<Type> getTypes() {
         return types;
     }
 
-    public void setTypes(List<Type> types) {
+    public void setTypes(ArrayList<Type> types) {
         this.types = types;
     }
 }

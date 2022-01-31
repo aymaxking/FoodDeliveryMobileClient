@@ -8,7 +8,9 @@ public class Type {
         this.id = id;
         this.title = title;
     }
-
+    public Type(String title) {
+        this.title = title;
+    }
     public Long getId() {
         return id;
     }
