@@ -17,10 +17,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fooddeliverymobileclient.Activity.IntroActivity;
+import com.example.fooddeliverymobileclient.Activity.MenuActivity;
 import com.example.fooddeliverymobileclient.Adapter.CategoryAdapter;
+import com.example.fooddeliverymobileclient.Adapter.PlaceAdapter;
 import com.example.fooddeliverymobileclient.Adapter.RecyclerItemClickListener;
 import com.example.fooddeliverymobileclient.Adapter.TypesAdapter;
 import com.example.fooddeliverymobileclient.Domain.Category;
+import com.example.fooddeliverymobileclient.Domain.Menu;
+import com.example.fooddeliverymobileclient.Domain.Place;
 import com.example.fooddeliverymobileclient.Domain.Type;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerViewCategory();
+        recyclerViewPlaces();
     }
 
     private void bottomNavigation() {
@@ -112,14 +117,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void recyclerViewPlaces() {
-        LinearLayoutManager linearLayoutManagerPlace = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewTypesPlaces = findViewById(R.id.recyclerViewCategory);
+        LinearLayoutManager linearLayoutManagerPlace = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerViewTypesPlaces = findViewById(R.id.recyclerViewPlace);
         recyclerViewTypesPlaces.setLayoutManager(linearLayoutManagerPlace);
 
-        ArrayList<Category> categories= new ArrayList<>();
+        ArrayList<Place> places= new ArrayList<>();
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://10.0.2.2:8181/rest/categories";
+        String url ="http://10.0.2.2:8181/rest/places";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try {
@@ -127,24 +132,21 @@ public class MainActivity extends AppCompatActivity {
                         for(int i=0;i<array.length();i++) {
                             JSONObject object1=array.getJSONObject(i);
                             String title =object1.getString("title");
-
-                            ArrayList<Type> types= new ArrayList<>();
-                            if(object1.has("types")){
-                                JSONArray array2=object1.getJSONArray("types");
-                                for(int j=0;j<array2.length();j++) {
-                                    JSONObject object2=array2.getJSONObject(j);
-                                    types.add(new Type(object2.getString("title")));
-                                }
-                            }
-                            categories.add(new Category(title,types));
+                            String description = object1.getString("description");
+                            String username = object1.getString("username");
+                            String password = object1.getString("password");
+                            String role = object1.getString("role");
+                            Long id = object1.getLong("id");
+                            places.add(new Place(id,username,password,role,title,description));
                         }
-                        adapterCategory = new CategoryAdapter(categories);
-                        recyclerViewCategoryList.setAdapter(adapterCategory);
-                        recyclerViewCategoryList.addOnItemTouchListener(
-                                new RecyclerItemClickListener(this, recyclerViewCategoryList ,new RecyclerItemClickListener.OnItemClickListener() {
+                        adapterPLace = new PlaceAdapter(places);
+                        recyclerViewTypesPlaces.setAdapter(adapterPLace);
+                        recyclerViewTypesPlaces.addOnItemTouchListener(
+                                new RecyclerItemClickListener(this, recyclerViewTypesPlaces ,new RecyclerItemClickListener.OnItemClickListener() {
                                     @Override public void onItemClick(View view, int position) {
-                                        adapterType = new TypesAdapter(categories.get(position).getTypes());
-                                        recyclerViewTypesList.setAdapter(adapterType);
+                                        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                        intent.putExtra("placeId", places.get(position).getId());
+                                        startActivity(intent);
                                     }
 
                                     @Override public void onLongItemClick(View view, int position) {

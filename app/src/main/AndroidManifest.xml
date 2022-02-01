@@ -3,6 +3,7 @@
     package="com.example.fooddeliverymobileclient">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodDeliveryMobileClient"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Activity.ItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MenuActivity"
+            android:exported="false" />
         <activity
             android:name=".Activity.IntroActivity"
             android:exported="true">
@@ -23,8 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

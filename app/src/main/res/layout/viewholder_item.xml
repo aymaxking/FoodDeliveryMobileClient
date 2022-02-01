@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:id="@+id/mainLayoutItem"
     android:background="@drawable/card_background"
     android:elevation="3dp">
 
@@ -17,11 +18,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         app:srcCompat="@drawable/pizza2" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -39,27 +40,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fee"
+        android:id="@+id/dh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.0"
-        android:textColor="#373b54"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        android:text="DH"
+        android:textColor="#ff3d00"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pic" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/itemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:text="$"
-        android:textColor="#ff3d00"
-        app:layout_constraintBottom_toBottomOf="@+id/fee"
-        app:layout_constraintEnd_toStartOf="@+id/fee"
-        app:layout_constraintTop_toBottomOf="@+id/pic" />
+        android:layout_marginEnd="20dp"
+        android:text="0.0"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/dh"
+        app:layout_constraintEnd_toStartOf="@+id/dh"
+        app:layout_constraintTop_toBottomOf="@+id/pic"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/addBtn"
@@ -77,5 +81,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fee" />
+        app:layout_constraintTop_toBottomOf="@+id/dh" />
 </androidx.constraintlayout.widget.ConstraintLayout>
