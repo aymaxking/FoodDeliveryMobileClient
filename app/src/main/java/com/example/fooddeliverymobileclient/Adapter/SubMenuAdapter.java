@@ -33,7 +33,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemName.setText(subMenus.get(position).getTitle());
-        holder.itemPrice.setText(subMenus.get(position).getPrice()+"");
+        holder.itemPrice.setText(subMenus.get(position).getPrice()+" MAD");
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
     }
 
