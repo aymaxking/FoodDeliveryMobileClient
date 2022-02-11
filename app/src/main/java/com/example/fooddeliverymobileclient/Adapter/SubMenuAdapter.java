@@ -1,8 +1,12 @@
 package com.example.fooddeliverymobileclient.Adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +38,9 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemName.setText(subMenus.get(position).getTitle());
         holder.itemPrice.setText(subMenus.get(position).getPrice()+" MAD");
+        Bitmap bmp= BitmapFactory.decodeByteArray(subMenus.get(position).getImg(),0,subMenus.get(position).getImg().length);
+        holder.itemImage.setImageBitmap(bmp);
+        Log.e("eb",String.valueOf(bmp==null));
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
     }
 
@@ -46,12 +53,14 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView itemName;
         TextView itemPrice;
+        ImageView itemImage;
         ConstraintLayout mainLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.itemName);
             itemPrice = itemView.findViewById(R.id.itemPrice);
+            itemImage=itemView.findViewById(R.id.itemImage);
             mainLayout = itemView.findViewById(R.id.mainLayoutItem);
         }
     }

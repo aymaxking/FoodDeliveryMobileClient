@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -60,14 +61,13 @@ public class ItemActivity extends AppCompatActivity {
                 response -> {
                     try {
                         JSONObject object1 = new JSONObject(response);
-                        Log.e("dd",object1+"");
                         String title = object1.getString("title");
                         Long id = object1.getLong("id");
                         if (!object1.get("subMenus").toString().equals("null")) {
                             JSONArray array2 = object1.getJSONArray("subMenus");
                             for (int j = 0; j < array2.length(); j++) {
                                 JSONObject object2 = array2.getJSONObject(j);
-                                subMenus.add(new SubMenu(object2.getLong("id"),object2.getString("title"),object2.getDouble("price")));
+                                subMenus.add(new SubMenu(object2.getLong("id"),object2.getString("title"),object2.getDouble("price"), Base64.decode(object2.getString("img"),Base64.DEFAULT)));
                             }
                         }
                         menu = new Menu(id, title);

@@ -65,6 +65,7 @@ public class MenuActivity extends AppCompatActivity {
                         String username = object1.getString("username");
                         String password = object1.getString("password");
                         String role = object1.getString("role");
+                        byte[] img = object1.getString("img").getBytes();
                         Long id = object1.getLong("id");
                         if (!object1.get("menus").toString().equals("null")) {
                             JSONArray array2 = object1.getJSONArray("menus");
@@ -73,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
                                 menus.add(new Menu(object2.getLong("id"), object2.getString("title")));
                             }
                         }
-                        place = new Place(id, username, password, role, title, description, menus);
+                        place = new Place(id, username, password, role, img,title, description, menus);
                         titleTV.setText(place.getTitle());
                         adapterMernu = new MenuAdapter(menus);
                         recyclerViewMenusPlaces.setAdapter(adapterMernu);

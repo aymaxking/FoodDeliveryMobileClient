@@ -1,8 +1,12 @@
 package com.example.fooddeliverymobileclient.Adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +38,8 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.placeName.setText(places.get(position).getTitle());
         holder.placeDescription.setText(places.get(position).getDescription());
+        Bitmap bmp= BitmapFactory.decodeByteArray(places.get(position).getImg(),0,places.get(position).getImg().length);
+        holder.placeImg.setImageBitmap(bmp);
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
     }
 
@@ -46,12 +52,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView placeName;
         TextView placeDescription;
+        ImageView placeImg;
         ConstraintLayout mainLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             placeName = itemView.findViewById(R.id.placeName);
             placeDescription = itemView.findViewById(R.id.placeDescription);
+            placeImg = itemView.findViewById(R.id.placeImg);
             mainLayout = itemView.findViewById(R.id.mainLayoutPlace);
         }
     }

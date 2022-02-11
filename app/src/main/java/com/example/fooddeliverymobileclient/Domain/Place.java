@@ -7,17 +7,26 @@ public class Place extends User{
     String description;
     ArrayList<Menu> menus ;
 
-    public Place(Long id, String username, String password, String role, String title, String description, ArrayList<Menu> menus) {
-        super(id, username, password, role);
+    public Place(Long id, String username, String password, String role,byte[] img, String title, String description, ArrayList<Menu> menus) {
+        super(id, username, password, role,img);
         this.title = title;
         this.description = description;
         this.menus = menus;
     }
 
-    public Place(Long id, String username, String password, String role, String title, String description) {
-        super(id, username, password, role);
+    public Place(Long id, String username, String password, String role,byte[] img, String title, String description) {
+        super(id, username, password, role,img);
         this.title = title;
         this.description = description;
+
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 
     public String getTitle() {

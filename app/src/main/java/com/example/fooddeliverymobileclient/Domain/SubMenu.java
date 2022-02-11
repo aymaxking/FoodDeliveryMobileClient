@@ -4,11 +4,22 @@ public class SubMenu {
     Long id;
     String title;
     double price;
+    byte[] img;
 
-    public SubMenu(Long id, String title, double price) {
+
+    public SubMenu(Long id, String title, double price,byte[] img) {
         this.id = id;
         this.title = title;
         this.price = price;
+        this.img=img;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 
     public Long getId() {

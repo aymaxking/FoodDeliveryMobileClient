@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -136,8 +138,9 @@ public class MainActivity extends AppCompatActivity {
                             String username = object1.getString("username");
                             String password = object1.getString("password");
                             String role = object1.getString("role");
+                            byte[] img = Base64.decode(object1.getString("img"),Base64.DEFAULT);
                             Long id = object1.getLong("id");
-                            places.add(new Place(id,username,password,role,title,description));
+                            places.add(new Place(id,username,password,role,img,title,description));
                         }
                         adapterPLace = new PlaceAdapter(places);
                         recyclerViewTypesPlaces.setAdapter(adapterPLace);
