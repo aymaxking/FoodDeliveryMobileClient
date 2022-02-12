@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
 
                                     @Override public void onLongItemClick(View view, int position) {
-                                        // do whatever
+
                                     }
                                 })
                         );
@@ -151,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
                                         intent.putExtra("placeId", places.get(position).getId());
                                         startActivity(intent);
                                     }
-
                                     @Override public void onLongItemClick(View view, int position) {
                                         // do whatever
                                     }

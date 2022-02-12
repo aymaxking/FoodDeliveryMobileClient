@@ -7,7 +7,7 @@ public class Menu {
 
     String title;
 
-    ArrayList<SubMenu> subMenus;
+    ArrayList<SubMenu> subMenus = new ArrayList<SubMenu>();
 
     public Menu(Long id, String title, ArrayList<SubMenu> subMenus) {
         this.id = id;

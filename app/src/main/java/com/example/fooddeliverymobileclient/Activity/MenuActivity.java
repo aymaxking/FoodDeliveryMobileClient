@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import com.example.fooddeliverymobileclient.Adapter.PlaceAdapter;
 import com.example.fooddeliverymobileclient.Adapter.RecyclerItemClickListener;
 import com.example.fooddeliverymobileclient.Domain.Menu;
 import com.example.fooddeliverymobileclient.Domain.Place;
+import com.example.fooddeliverymobileclient.Domain.SubMenu;
 import com.example.fooddeliverymobileclient.MainActivity;
 import com.example.fooddeliverymobileclient.R;
 
@@ -72,6 +74,13 @@ public class MenuActivity extends AppCompatActivity {
                             for (int j = 0; j < array2.length(); j++) {
                                 JSONObject object2 = array2.getJSONObject(j);
                                 menus.add(new Menu(object2.getLong("id"), object2.getString("title")));
+                                if (!object2.get("subMenus").toString().equals("null")) {
+                                    JSONArray array3 = object2.getJSONArray("subMenus");
+                                    for (int k = 0; k < array3.length(); k++) {
+                                        JSONObject object3 = array3.getJSONObject(k);
+                                        menus.get(j).getSubMenus().add(new SubMenu(object3.getLong("id"),object3.getString("title"),object3.getDouble("price"), Base64.decode(object3.getString("img"),Base64.DEFAULT)));
+                                    }
+                                }
                             }
                         }
                         place = new Place(id, username, password, role, img,title, description, menus);
