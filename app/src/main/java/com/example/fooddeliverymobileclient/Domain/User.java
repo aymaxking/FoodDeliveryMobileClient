@@ -5,14 +5,22 @@ public class User {
     String username;
     String password;
     String role;
+    String number;
     byte[] img;
 
-    public User(Long id, String username, String password, String role,byte[] img) {
+
+    public User(Long id, String username, String password, String role,String number,byte[] img) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.number=number;
         this.img=img;
+    }
+    public User(String username, String password,String number) {
+        this.username = username;
+        this.password = password;
+        this.number=number;
     }
 
     public byte[] getImg() {

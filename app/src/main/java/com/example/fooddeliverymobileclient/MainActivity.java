@@ -136,12 +136,13 @@ public class MainActivity extends AppCompatActivity {
                             String title =object1.getString("title");
                             String description = object1.getString("description");
                             String location = object1.getString("location");
+                            String number = object1.getString("number");
                             String username = object1.getString("username");
                             String password = object1.getString("password");
                             String role = object1.getString("role");
                             byte[] img = Base64.decode(object1.getString("img"),Base64.DEFAULT);
                             Long id = object1.getLong("id");
-                            places.add(new Place(id,username,password,role,img,title,description,location));
+                            places.add(new Place(id,username,password,role,number,img,title,description,location));
                         }
                         adapterPLace = new PlaceAdapter(places);
                         recyclerViewTypesPlaces.setAdapter(adapterPLace);

@@ -65,6 +65,7 @@ public class MenuActivity extends AppCompatActivity {
                         String title = object1.getString("title");
                         String description = object1.getString("description");
                         String location = object1.getString("location");
+                        String number = object1.getString("number");
                         String username = object1.getString("username");
                         String password = object1.getString("password");
                         String role = object1.getString("role");
@@ -84,7 +85,7 @@ public class MenuActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                        place = new Place(id, username, password, role, img,title, description,location, menus);
+                        place = new Place(id, username, password, role, number,img,title, description,location, menus);
                         titleTV.setText(place.getTitle());
                         adapterMernu = new MenuAdapter(menus);
                         recyclerViewMenusPlaces.setAdapter(adapterMernu);
