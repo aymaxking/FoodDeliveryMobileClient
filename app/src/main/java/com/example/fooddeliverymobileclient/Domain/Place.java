@@ -5,24 +5,35 @@ import java.util.ArrayList;
 public class Place extends User{
     String title;
     String description;
+    String location;
     ArrayList<Menu> menus ;
 
-    public Place(Long id, String username, String password, String role,byte[] img, String title, String description, ArrayList<Menu> menus) {
+    public Place(Long id, String username, String password, String role,byte[] img, String title, String description,String location, ArrayList<Menu> menus) {
         super(id, username, password, role,img);
         this.title = title;
         this.description = description;
         this.menus = menus;
+        this.location=location;
     }
 
-    public Place(Long id, String username, String password, String role,byte[] img, String title, String description) {
+    public Place(Long id, String username, String password, String role,byte[] img, String title, String description,String location) {
         super(id, username, password, role,img);
         this.title = title;
         this.description = description;
+        this.location=location;
 
     }
 
     public byte[] getImg() {
         return img;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setImg(byte[] img) {

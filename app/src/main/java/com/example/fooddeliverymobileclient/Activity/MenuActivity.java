@@ -64,6 +64,7 @@ public class MenuActivity extends AppCompatActivity {
                         JSONObject object1 = new JSONObject(response);
                         String title = object1.getString("title");
                         String description = object1.getString("description");
+                        String location = object1.getString("location");
                         String username = object1.getString("username");
                         String password = object1.getString("password");
                         String role = object1.getString("role");
@@ -83,7 +84,7 @@ public class MenuActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                        place = new Place(id, username, password, role, img,title, description, menus);
+                        place = new Place(id, username, password, role, img,title, description,location, menus);
                         titleTV.setText(place.getTitle());
                         adapterMernu = new MenuAdapter(menus);
                         recyclerViewMenusPlaces.setAdapter(adapterMernu);
