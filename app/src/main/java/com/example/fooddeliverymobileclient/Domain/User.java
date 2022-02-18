@@ -22,7 +22,10 @@ public class User {
         this.password = password;
         this.number=number;
     }
-
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
     public byte[] getImg() {
         return img;
     }

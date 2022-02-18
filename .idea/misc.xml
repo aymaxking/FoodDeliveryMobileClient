@@ -9,13 +9,10 @@
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/drawable/category_background1.xml" value="0.167" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/drawable/light_back.xml" value="0.166" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/drawable/search_back.xml" value="0.166" />
-        <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_card.xml" value="0.22" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_intro.xml" value="0.22" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_item.xml" value="0.2490740740740741" />
-        <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_menu.xml" value="0.33" />
-        <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_signup.xml" value="0.25" />
+        <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_menu.xml" value="0.25570342205323193" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/viewholder_card.xml" value="0.2125" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/viewholder_cat.xml" value="0.2125" />
         <entry key="..\:/Users/BLACKHOLE/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/viewholder_item.xml" value="0.2490740740740741" />
@@ -29,6 +26,7 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/drawable/category_background1.xml" value="0.1525" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/drawable/search_back.xml" value="0.208" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_item.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/activity_menu.xml" value="0.1" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/FoodDeliveryMobileClient/app/src/main/res/layout/viewholder_cat.xml" value="0.4" />
