@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/mainLayoutItem"
+    android:background="@drawable/card_background"
+    android:elevation="3dp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pizza1" />
+
+    <TextView
+        android:id="@+id/itemNameCommande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#373b54"
+        app:layout_constraintStart_toEndOf="@+id/itemImage"
+        app:layout_constraintTop_toTopOf="@+id/itemImage" />
+
+    <ImageView
+        android:id="@+id/itemminus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/itemImage"
+        app:layout_constraintStart_toEndOf="@+id/itemImage"
+        app:srcCompat="@drawable/minus" />
+
+    <TextView
+        android:id="@+id/itemcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1"
+        android:textColor="#373b54"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/itemminus"
+        app:layout_constraintStart_toEndOf="@+id/itemminus"
+        app:layout_constraintTop_toTopOf="@+id/itemminus" />
+
+    <ImageView
+        android:id="@+id/itemplus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/itemminus"
+        app:layout_constraintStart_toEndOf="@+id/itemcount"
+        app:layout_constraintTop_toTopOf="@+id/itemminus"
+        app:srcCompat="@drawable/plus" />
+
+    <TextView
+        android:id="@+id/itemPriceCommande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0"
+        android:textColor="#373b54"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/itemNameCommande"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemNameCommande" />
+
+
+
+    <TextView
+        android:id="@+id/itemTotalCommande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/itemplus"
+        app:layout_constraintEnd_toEndOf="@+id/itemPriceCommande"
+        app:layout_constraintTop_toTopOf="@+id/itemplus" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

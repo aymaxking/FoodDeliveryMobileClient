@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,10 +29,13 @@ import com.example.fooddeliverymobileclient.Adapter.PlaceAdapter;
 import com.example.fooddeliverymobileclient.Adapter.RecyclerItemClickListener;
 import com.example.fooddeliverymobileclient.Adapter.TypesAdapter;
 import com.example.fooddeliverymobileclient.Domain.Category;
+import com.example.fooddeliverymobileclient.Domain.Client;
+import com.example.fooddeliverymobileclient.Domain.Commande;
 import com.example.fooddeliverymobileclient.Domain.Menu;
 import com.example.fooddeliverymobileclient.Domain.Place;
 import com.example.fooddeliverymobileclient.Domain.Type;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,14 +47,25 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterCategory, adapterType,adapterPLace;
     private RecyclerView recyclerViewCategoryList, recyclerViewTypesList,recyclerViewTypesPlaces;
+    SharedPreferences sh;
+    TextView name ;
+    ImageView  img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-        Log.e("",sh.getString("id",""));
+        sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        name=findViewById(R.id.textView4);
+        img=findViewById(R.id.imageView3);
+        filldata();
         recyclerViewCategory();
         recyclerViewPlaces();
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(new Commande());
+        myEdit.putString("commande", json);
+        myEdit.commit();
     }
 
     private void bottomNavigation() {
@@ -67,6 +85,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
             }
         });
+    }
+
+    public void filldata(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://10.0.2.2:8181/rest/clients/"+sh.getString("id","");
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+                        JSONObject object=new JSONObject(response);
+                         name.setText(object.getString("name"));
+                         byte[] image = object.getString("img").getBytes();
+                         if(image.length>6){
+                             Bitmap bmp= BitmapFactory.decodeByteArray(image,0,image.length);
+                             img.setImageBitmap(bmp);
+                         }
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+            Log.e("err",error.getMessage());
+        });
+        queue.add(stringRequest);
     }
     private void recyclerViewCategory() {
         LinearLayoutManager linearLayoutManagerCategory = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);

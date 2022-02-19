@@ -1,5 +1,8 @@
 package com.example.fooddeliverymobileclient.Domain;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Client  extends User{
     String name;
     String birthday;
@@ -12,6 +15,21 @@ public class Client  extends User{
         this.birthday = birthday;
         this.CIN = CIN;
         this.home_adresse = home_adresse;
+    }
+    public Client(JSONObject object){
+        super();
+        try{
+            name=object.getString("name");
+            birthday=object.getString("birthday");
+            CIN=object.getString("CIN");
+            id=object.getLong("id");
+            username=object.getString("username");
+            password=object.getString("password");
+            img=object.getString("img").getBytes();
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
     public Client(String username, String password, String name,String number) {
         super(username, password,number);

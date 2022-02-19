@@ -72,7 +72,7 @@ public class ItemActivity extends AppCompatActivity {
                         }
                         menu = new Menu(id, title);
                         titleTV.setText(menu.getTitle());
-                        adapterItem = new SubMenuAdapter(subMenus);
+                        adapterItem = new SubMenuAdapter(subMenus,this);
                         recyclerViewItemsItems.setAdapter(adapterItem);
                         recyclerViewItemsItems.addOnItemTouchListener(
                                 new RecyclerItemClickListener(this, recyclerViewItemsItems, new RecyclerItemClickListener.OnItemClickListener() {
