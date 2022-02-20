@@ -10,13 +10,25 @@ public class Commande {
     String date;
     String heure;
     String etat;
+    Long idclient;
     List<SubMenu> items;
 
+    public  double getTotal(){
+        double total=0;
+        for(SubMenu  item : items){
+            total+=item.getPrice();
+        }
+        return total;
+    }
 
 
+    public Long getIdclient() {
+        return idclient;
+    }
 
-
-
+    public void setIdclient(Long idclient) {
+        this.idclient = idclient;
+    }
 
     public Commande() {
         items=  new ArrayList<>();

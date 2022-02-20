@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FoodDeliveryMobileClient"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.SignupActivity"
             android:exported="false" />
         <activity

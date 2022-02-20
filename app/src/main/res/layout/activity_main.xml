@@ -169,7 +169,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/homeBtn"
+                    android:id="@+id/navHome"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -285,10 +285,10 @@
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/card_btn"
+            android:id="@+id/navCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ff5e00"
+            android:backgroundTint="#1566e0"
             android:elevation="3dp"
             android:src="@drawable/shopping_cart"
             app:backgroundTint="#ff5e00"

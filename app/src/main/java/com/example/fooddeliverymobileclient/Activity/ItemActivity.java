@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -21,7 +22,9 @@ import com.example.fooddeliverymobileclient.Adapter.SubMenuAdapter;
 import com.example.fooddeliverymobileclient.Domain.Menu;
 import com.example.fooddeliverymobileclient.Domain.Place;
 import com.example.fooddeliverymobileclient.Domain.SubMenu;
+import com.example.fooddeliverymobileclient.MainActivity;
 import com.example.fooddeliverymobileclient.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +47,7 @@ public class ItemActivity extends AppCompatActivity {
         itemId = (Long) getIntent().getExtras().get("itemId");
         titleTV = findViewById(R.id.menuNameItem);;
         recyclerViewItems();
+        bottomNavigation();
 
 
     }
@@ -93,6 +97,25 @@ public class ItemActivity extends AppCompatActivity {
             Log.e("err", error.getMessage());
         });
         queue.add(stringRequest);
+    }
+
+    private void bottomNavigation() {
+        FloatingActionButton card = findViewById(R.id.navCardI);
+        LinearLayout homeBtn = findViewById(R.id.navHomeI);
+
+        card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ItemActivity.this, CardActivity.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ItemActivity.this,MainActivity.class));
+            }
+        });
     }
 
 }

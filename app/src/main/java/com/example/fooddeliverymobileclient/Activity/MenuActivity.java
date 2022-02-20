@@ -24,6 +24,7 @@ import com.example.fooddeliverymobileclient.Domain.Place;
 import com.example.fooddeliverymobileclient.Domain.SubMenu;
 import com.example.fooddeliverymobileclient.MainActivity;
 import com.example.fooddeliverymobileclient.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +47,7 @@ public class MenuActivity extends AppCompatActivity {
         placeId = (Long) getIntent().getExtras().get("placeId");
          titleTV = findViewById(R.id.placeName);;
         recyclerViewMenus();
+        bottomNavigation();
 
     }
 
@@ -111,5 +113,22 @@ public class MenuActivity extends AppCompatActivity {
         });
         queue.add(stringRequest);
     }
+    private void bottomNavigation() {
+        FloatingActionButton card = findViewById(R.id.navCardM);
+        LinearLayout homeBtn = findViewById(R.id.navHomeM);
 
+        card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, CardActivity.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this,MainActivity.class));
+            }
+        });
+    }
 }

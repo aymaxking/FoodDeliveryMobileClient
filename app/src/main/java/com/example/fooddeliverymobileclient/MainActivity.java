@@ -22,7 +22,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.fooddeliverymobileclient.Activity.CardActivity;
 import com.example.fooddeliverymobileclient.Activity.IntroActivity;
+import com.example.fooddeliverymobileclient.Activity.LoginActivity;
 import com.example.fooddeliverymobileclient.Activity.MenuActivity;
 import com.example.fooddeliverymobileclient.Adapter.CategoryAdapter;
 import com.example.fooddeliverymobileclient.Adapter.PlaceAdapter;
@@ -64,25 +66,28 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(new Commande());
-        myEdit.putString("commande", json);
-        myEdit.commit();
+        if(gson.fromJson(sharedPreferences.getString("commande", ""), Commande.class).getItems().size()==0){
+            myEdit.putString("commande", json);
+            myEdit.commit();
+        }
+        bottomNavigation();
     }
 
     private void bottomNavigation() {
-        FloatingActionButton floatingActionButton = findViewById(R.id.card_btn);
-        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+        FloatingActionButton card = findViewById(R.id.navCard);
+        LinearLayout homeBtn = findViewById(R.id.navHome);
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, CartListActivity.class));
+                startActivity(new Intent(MainActivity.this, CardActivity.class));
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                startActivity(new Intent(MainActivity.this,MainActivity.class));
             }
         });
     }

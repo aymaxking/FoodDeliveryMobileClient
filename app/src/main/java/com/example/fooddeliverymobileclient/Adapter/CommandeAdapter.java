@@ -60,6 +60,7 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
         ImageView itemplus;
         ImageView itemminus;
         ImageView itemImage;
+
         ConstraintLayout mainLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -71,6 +72,7 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
             itemplus = itemView.findViewById(R.id.itemplus);
             itemminus = itemView.findViewById(R.id.itemminus);
             itemImage = itemView.findViewById(R.id.itemImage);
+
             mainLayout = itemView.findViewById(R.id.mainLayoutItem);
         }
     }

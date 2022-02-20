@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fooddeliverymobileclient.Activity.CardActivity;
+import com.example.fooddeliverymobileclient.Activity.DetailActivity;
 import com.example.fooddeliverymobileclient.Activity.IntroActivity;
 import com.example.fooddeliverymobileclient.Activity.ItemActivity;
 import com.example.fooddeliverymobileclient.Activity.LoginActivity;
@@ -49,6 +50,14 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, DetailActivity.class);
+                i.putExtra("subMenuId", subMenus.get(position).getId().toString());
+                context.startActivity(i);
+            }
+        });
         holder.itemName.setText(subMenus.get(position).getTitle());
         holder.itemPrice.setText(subMenus.get(position).getPrice()+" MAD");
         holder.addBtn.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +71,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
                 commande.getItems().add(subMenus.get(position));
                 myEdit.putString("commande", gson.toJson(commande));
                 myEdit.commit();
-                context.startActivity(new Intent(context, CardActivity.class));
             }
         });
         Bitmap bmp= BitmapFactory.decodeByteArray(subMenus.get(position).getImg(),0,subMenus.get(position).getImg().length);
