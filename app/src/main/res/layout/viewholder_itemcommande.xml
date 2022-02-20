@@ -10,21 +10,6 @@
     android:background="@drawable/card_background"
     android:elevation="3dp">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <ImageView
         android:id="@+id/itemImage"
         android:layout_width="100dp"

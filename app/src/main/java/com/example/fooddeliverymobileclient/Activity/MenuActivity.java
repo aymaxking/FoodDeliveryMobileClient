@@ -116,7 +116,13 @@ public class MenuActivity extends AppCompatActivity {
     private void bottomNavigation() {
         FloatingActionButton card = findViewById(R.id.navCardM);
         LinearLayout homeBtn = findViewById(R.id.navHomeM);
-
+        LinearLayout ordersBtn = findViewById(R.id.navOrdersM);
+        ordersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this,OrdersActivity.class));
+            }
+        });
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

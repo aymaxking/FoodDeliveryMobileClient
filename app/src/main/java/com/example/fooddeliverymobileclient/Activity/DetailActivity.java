@@ -53,7 +53,6 @@ public class DetailActivity extends AppCompatActivity {
         detailPrice= findViewById(R.id.detailPrice);
         detailImage= findViewById(R.id.detailImage);
         addtocard=findViewById(R.id.addToCardBtn);
-
         filldata();
         bottomNavigation();
     }
@@ -96,7 +95,13 @@ public class DetailActivity extends AppCompatActivity {
     private void bottomNavigation() {
         FloatingActionButton card = findViewById(R.id.navCardC);
         LinearLayout homeBtn = findViewById(R.id.navHomeC);
-
+        LinearLayout ordersBtn = findViewById(R.id.navOrdersD);
+        ordersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DetailActivity.this,OrdersActivity.class));
+            }
+        });
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,5 +115,6 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(new Intent(DetailActivity.this, MainActivity.class));
             }
         });
+
     }
 }

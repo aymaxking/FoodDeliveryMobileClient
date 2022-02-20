@@ -26,6 +26,7 @@ import com.example.fooddeliverymobileclient.Activity.CardActivity;
 import com.example.fooddeliverymobileclient.Activity.IntroActivity;
 import com.example.fooddeliverymobileclient.Activity.LoginActivity;
 import com.example.fooddeliverymobileclient.Activity.MenuActivity;
+import com.example.fooddeliverymobileclient.Activity.OrdersActivity;
 import com.example.fooddeliverymobileclient.Adapter.CategoryAdapter;
 import com.example.fooddeliverymobileclient.Adapter.PlaceAdapter;
 import com.example.fooddeliverymobileclient.Adapter.RecyclerItemClickListener;
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(new Commande());
-        if(gson.fromJson(sharedPreferences.getString("commande", ""), Commande.class).getItems().size()==0){
+        Commande com = gson.fromJson(sharedPreferences.getString("commande", ""), Commande.class);
+        if(String.valueOf(com).equals("null")||com.getItems().size()==0) {
             myEdit.putString("commande", json);
             myEdit.commit();
         }
@@ -76,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
     private void bottomNavigation() {
         FloatingActionButton card = findViewById(R.id.navCard);
         LinearLayout homeBtn = findViewById(R.id.navHome);
-
+        LinearLayout ordersBtn = findViewById(R.id.navOrders);
+        ordersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,OrdersActivity.class));
+            }
+        });
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

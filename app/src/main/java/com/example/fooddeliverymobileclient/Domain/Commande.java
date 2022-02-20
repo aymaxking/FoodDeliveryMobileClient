@@ -1,5 +1,9 @@
 package com.example.fooddeliverymobileclient.Domain;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -32,6 +36,24 @@ public class Commande {
 
     public Commande() {
         items=  new ArrayList<>();
+    }
+    public Commande(JSONObject jsonObject){
+        try {
+        this.id=jsonObject.getLong("id");
+        this.date=jsonObject.getString("date");
+        this.heure=jsonObject.getString("heure");
+        this.etat=jsonObject.getString("etat");
+        this.items=new ArrayList<>();
+            if(jsonObject.has("items")){
+                JSONArray array2=jsonObject.getJSONArray("items");
+                for(int j=0;j<array2.length();j++) {
+                    this.items.add(new SubMenu(array2.getJSONObject(j)));
+                }
+            }
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public Long getId() {

@@ -60,19 +60,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
         });
         holder.itemName.setText(subMenus.get(position).getTitle());
         holder.itemPrice.setText(subMenus.get(position).getPrice()+" MAD");
-        holder.addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences mPreferences = context.getSharedPreferences("MySharedPref",Context.MODE_PRIVATE);
-                SharedPreferences.Editor myEdit = mPreferences.edit();
-                Gson gson = new Gson();
-                String json = mPreferences.getString("commande", "");
-                Commande commande = gson.fromJson(json, Commande.class);
-                commande.getItems().add(subMenus.get(position));
-                myEdit.putString("commande", gson.toJson(commande));
-                myEdit.commit();
-            }
-        });
         Bitmap bmp= BitmapFactory.decodeByteArray(subMenus.get(position).getImg(),0,subMenus.get(position).getImg().length);
         holder.itemImage.setImageBitmap(bmp);
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));

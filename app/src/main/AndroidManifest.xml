@@ -13,6 +13,16 @@
         android:theme="@style/Theme.FoodDeliveryMobileClient"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.OrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.OrdersActivity"
+            android:exported="false"
+            android:label="@string/title_activity_orders" />
+        <activity
             android:name=".Activity.DetailActivity"
             android:exported="false" />
         <activity

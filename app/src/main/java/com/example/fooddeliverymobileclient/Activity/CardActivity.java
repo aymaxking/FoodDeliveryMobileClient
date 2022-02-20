@@ -124,6 +124,7 @@ public class CardActivity extends AppCompatActivity {
     private void bottomNavigation() {
         FloatingActionButton card = findViewById(R.id.navCardC);
         LinearLayout homeBtn = findViewById(R.id.navHomeC);
+        LinearLayout ordersBtn = findViewById(R.id.navOrdersC);
 
         card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +137,13 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CardActivity.this,MainActivity.class));
+            }
+        });
+
+        ordersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CardActivity.this,OrdersActivity.class));
             }
         });
     }

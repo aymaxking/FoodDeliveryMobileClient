@@ -4,134 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.CardActivity">
-
-
-    <LinearLayout
-        android:id="@+id/cardlist"
+    tools:context=".Activity.OrdersActivity">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrders"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:clipToPadding="false"
+        android:background="#f6f6f6"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105">
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="20dp"
-            android:text="My Card"
-            android:textAlignment="center"
-            android:textColor="#1566e0"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/orderitemslist"
-            android:layout_width="match_parent"
-            android:layout_height="300dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Items Total:"
-                android:textColor="#373b54"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/totalFeeTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#373b54"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Delivery Services:"
-                android:textColor="#373b54"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/deliveryTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#373b54"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Total:"
-                android:textColor="#373b54"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/totalTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#373b54"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/checkout"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/button_background"
-            android:gravity="center"
-            android:text="CheckOut"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+         />
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -156,7 +42,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/navHomeC"
+                    android:id="@+id/navHomeO"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -221,7 +107,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/navOrdersC"
+                    android:id="@+id/navOrdersO"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -265,7 +151,7 @@
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/navCardC"
+            android:id="@+id/navCardO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#1566e0"
@@ -276,4 +162,5 @@
             app:maxImageSize="30dp"
             app:tint="#ffffff" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
