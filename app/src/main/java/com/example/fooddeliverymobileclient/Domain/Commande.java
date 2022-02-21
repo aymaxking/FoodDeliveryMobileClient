@@ -25,6 +25,30 @@ public class Commande {
         return total;
     }
 
+    public int countitems(SubMenu subMenu){
+        int i=0;
+        for(SubMenu s:items){
+            if(s.getId()==subMenu.getId()) i++;
+        }
+        return i;
+    }
+
+    public  List<SubMenu> noDoubles(){
+        List<SubMenu> newList=new ArrayList<SubMenu>();
+        int f=0;
+        for(SubMenu s:items){
+            f=0;
+            for(SubMenu s2:newList){
+                if(s2.getId()==s.getId()){
+                    f=1;
+                    break;
+                }
+            }
+            if(f==0) newList.add(s);
+        }
+        return newList;
+    }
+
 
     public Long getIdclient() {
         return idclient;

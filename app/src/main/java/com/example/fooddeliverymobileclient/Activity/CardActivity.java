@@ -36,11 +36,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CardActivity extends AppCompatActivity {
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private RecyclerView.Adapter adapterItem;
     private RecyclerView recyclerViewItemsItems;
     TextView totalItems;
@@ -114,9 +116,9 @@ public class CardActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManagerItem = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerViewItemsItems = findViewById(R.id.orderitemslist);
         recyclerViewItemsItems.setLayoutManager(linearLayoutManagerItem);
-        totalItems.setText(commande.getTotal()+" MAD");
+        totalItems.setText(df.format(commande.getTotal())+" MAD");
         deliveryfees.setText("10%");
-        total.setText(commande.getTotal()*1.1+ " MAD");
+        total.setText(df.format(commande.getTotal()*1.1)+ " MAD");
         adapterItem = new CommandeAdapter(commande);
         recyclerViewItemsItems.setAdapter(adapterItem);
     }

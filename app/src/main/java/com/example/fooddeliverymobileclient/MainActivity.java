@@ -207,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
                                     @Override public void onItemClick(View view, int position) {
                                         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                                         intent.putExtra("placeId", places.get(position).getId());
+                                        Log.e("problem",places.get(position).getId()+"");
                                         startActivity(intent);
                                     }
                                     @Override public void onLongItemClick(View view, int position) {

@@ -2,6 +2,7 @@ package com.example.fooddeliverymobileclient.Adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHolder> {
     Commande commande;
 
+
     public CommandeAdapter(Commande commande) {
         this.commande=commande;
     }
@@ -37,11 +39,11 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.itemNameCommande.setText(commande.getItems().get(position).getTitle());
-        holder.itemPriceCommande.setText(commande.getItems().get(position).getPrice()+" MAD");
-        holder.itemTotalCommande.setText(commande.getItems().get(position).getPrice()+" MAD");
-        holder.itemcount.setText("1");
-        Bitmap bmp= BitmapFactory.decodeByteArray(commande.getItems().get(position).getImg(),0,commande.getItems().get(position).getImg().length);
+        holder.itemNameCommande.setText(commande.noDoubles().get(position).getTitle());
+        holder.itemPriceCommande.setText(commande.noDoubles().get(position).getPrice()+" MAD");
+        holder.itemTotalCommande.setText(commande.noDoubles().get(position).getPrice()*commande.countitems(commande.noDoubles().get(position))+" MAD");
+        holder.itemcount.setText(commande.countitems(commande.noDoubles().get(position))+"");
+        Bitmap bmp= BitmapFactory.decodeByteArray(commande.noDoubles().get(position).getImg(),0,commande.noDoubles().get(position).getImg().length);
         holder.itemImage.setImageBitmap(bmp);
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
     }
@@ -49,7 +51,8 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return commande.getItems().size();
+        Log.e("itemCount",commande.noDoubles().size()+"");
+        return commande.noDoubles().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -72,7 +75,6 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
             itemplus = itemView.findViewById(R.id.itemplus);
             itemminus = itemView.findViewById(R.id.itemminus);
             itemImage = itemView.findViewById(R.id.itemImage);
-
             mainLayout = itemView.findViewById(R.id.mainLayoutItem);
         }
     }

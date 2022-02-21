@@ -3,6 +3,7 @@ package com.example.fooddeliverymobileclient.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,6 +43,9 @@ public class DetailActivity extends AppCompatActivity {
     TextView detailPrice;
     ImageView detailImage;
     TextView addtocard;
+    TextView numberOrderTxt;
+    ImageView minusBtn;
+    ImageView plusBtn;
 
 
     @Override
@@ -53,6 +57,23 @@ public class DetailActivity extends AppCompatActivity {
         detailPrice= findViewById(R.id.detailPrice);
         detailImage= findViewById(R.id.detailImage);
         addtocard=findViewById(R.id.addToCardBtn);
+        numberOrderTxt=findViewById(R.id.numberOrderTxt);
+        plusBtn=findViewById(R.id.plusBtn);
+        minusBtn=findViewById(R.id.minusBtn);
+        plusBtn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                numberOrderTxt.setText((Integer.parseInt(numberOrderTxt.getText().toString())+1)+"");
+            }
+        });
+        minusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(numberOrderTxt.getText().toString())>1)
+                numberOrderTxt.setText(Integer.parseInt(numberOrderTxt.getText().toString())-1);
+            }
+        });
         filldata();
         bottomNavigation();
     }
@@ -77,7 +98,9 @@ public class DetailActivity extends AppCompatActivity {
                                 Gson gson = new Gson();
                                 String json = mPreferences.getString("commande", "");
                                 Commande commande = gson.fromJson(json, Commande.class);
-                                commande.getItems().add(item);
+                                for(int i = 0; i<Integer.parseInt(numberOrderTxt.getText().toString()); i++){
+                                    commande.getItems().add(item);
+                                }
                                 myEdit.putString("commande", gson.toJson(commande));
                                 myEdit.commit();
                             }
