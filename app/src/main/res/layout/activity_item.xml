@@ -13,6 +13,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginBottom="15dp"
         android:textSize="25dp"
+        android:textColor="#1566e0"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
