@@ -13,9 +13,12 @@ import com.example.fooddeliverymobileclient.Domain.Commande;
 import com.example.fooddeliverymobileclient.R;
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
+
 public class OrderDetails extends AppCompatActivity {
     private RecyclerView.Adapter adapterItem;
     private RecyclerView recyclerViewItemsItems;
+    private   DecimalFormat df = new DecimalFormat("0.00");
     TextView orderNumber;
     TextView orderTotal;
 
@@ -34,10 +37,10 @@ public class OrderDetails extends AppCompatActivity {
         recyclerViewItemsItems.setLayoutManager(linearLayoutManagerItem);
         Gson gson = new Gson();
         Commande commande = gson.fromJson(getIntent().getStringExtra("commande"), Commande.class);
-        orderTotal.setText(commande.getTotal()*1.1+ " MAD");
+        orderTotal.setText(df.format(commande.getTotal()*1.1)+ " MAD");
         orderNumber.setText("Commande "+commande.getId());
         Log.e("order",commande.getItems().size()+"");
-        adapterItem = new CommandeAdapter(commande);
+        adapterItem = new CommandeAdapter(commande,1);
         recyclerViewItemsItems.setAdapter(adapterItem);
     }
 }

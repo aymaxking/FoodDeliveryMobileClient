@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CardActivity extends AppCompatActivity {
-    private static final DecimalFormat df = new DecimalFormat("0.00");
+    private   DecimalFormat df = new DecimalFormat("0.00");
     private RecyclerView.Adapter adapterItem;
     private RecyclerView recyclerViewItemsItems;
     TextView totalItems;
@@ -119,7 +119,7 @@ public class CardActivity extends AppCompatActivity {
         totalItems.setText(df.format(commande.getTotal())+" MAD");
         deliveryfees.setText("10%");
         total.setText(df.format(commande.getTotal()*1.1)+ " MAD");
-        adapterItem = new CommandeAdapter(commande);
+        adapterItem = new CommandeAdapter(commande,0);
         recyclerViewItemsItems.setAdapter(adapterItem);
     }
 

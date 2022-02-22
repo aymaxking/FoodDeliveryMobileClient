@@ -24,10 +24,12 @@ import java.util.ArrayList;
 
 public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHolder> {
     Commande commande;
+    int type;
 
 
-    public CommandeAdapter(Commande commande) {
+    public CommandeAdapter(Commande commande,int type) {
         this.commande=commande;
+        this.type=type;
     }
 
     @NonNull
@@ -46,12 +48,15 @@ public class CommandeAdapter extends RecyclerView.Adapter<CommandeAdapter.ViewHo
         Bitmap bmp= BitmapFactory.decodeByteArray(commande.noDoubles().get(position).getImg(),0,commande.noDoubles().get(position).getImg().length);
         holder.itemImage.setImageBitmap(bmp);
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
+        if(type==1){
+            holder.itemminus.setVisibility(View.INVISIBLE);
+            holder.itemplus.setVisibility(View.INVISIBLE);
+        }
     }
 
 
     @Override
     public int getItemCount() {
-        Log.e("itemCount",commande.noDoubles().size()+"");
         return commande.noDoubles().size();
     }
 

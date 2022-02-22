@@ -20,11 +20,14 @@ import com.example.fooddeliverymobileclient.Domain.Commande;
 import com.example.fooddeliverymobileclient.R;
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder> {
     ArrayList<Commande> commandes;
     private Context context;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
 
     public OrdersAdapter(ArrayList<Commande> commandes,Context context) {
         this.commandes=commandes;
@@ -51,7 +54,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
             }
         });
         holder.orderDate.setText(commandes.get(position).getDate()+"  "+commandes.get(position).getHeure());
-        holder.orderTotal.setText(commandes.get(position).getTotal()+" MAD");
+        holder.orderTotal.setText(df.format(commandes.get(position).getTotal()*1.1)+" MAD");
         holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.category_background1));
     }
 
